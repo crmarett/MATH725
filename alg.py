@@ -22,13 +22,11 @@ def alg(seq: list[int]):
     #Calculate f
     f = 0
     for index, val in enumerate(seq):
-        print(f"index is {index} val is {val}")
-        if val >= index:
-            f +=1
+        if val >= index+1:
+            f = index + 1
         else:
             break
     
-    print(f'f is {f}')
     #Calculate d* to later calculate b
     seq_2 = seq.copy()
     seq_star = [0 for _ in range(f)]
@@ -50,7 +48,6 @@ def alg(seq: list[int]):
 
     #Run algorithm
     k = f-1
-    print(f'a is {a} and b is {b}')
     while k>0:
         #Prints fxn submatrix
         print("")
@@ -65,12 +62,14 @@ def alg(seq: list[int]):
             a_prime[k] = b[k]
             a[k-1] += a[k]-b[k]
         k -= 1
-        
-
-    a_prime[1] = a[1] + 1/2*(b[1]-a[1])
-
+            
+    a_prime[0] = int(a[0] + 1/2*(b[1]-a[1]))
+    
     for i in range(f):
         b_prime[i] = a_prime[i]
+
+    print(f"\na' is {a_prime} at end of algorithm")
+
     return a_prime
 
 
