@@ -11,7 +11,7 @@ def main():
                 print(f'\n\nFor example {i} the sequence is {example_seq[i]}\nBelow is the Hasselbarth (0,1)-matrix for the sequence')
                 print_hass(example_seq[i])
                 a_prime = alg(example_seq[i])
-                print("\nFinal Output is")
+                print("\nFinal fxn matrix is")
                 print_a_prime(a_prime, len(example_seq[i]))
         elif user_input == "2":
             d = input("Enter sequence of numbers with a comma separator (e.g. 1,2,3,4): ")
